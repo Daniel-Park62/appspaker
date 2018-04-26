@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver   
+    url: jdbc:postgresql://192.168.0.210:5432/postgres
+    username: postgres
+    password: password
+    tomcat:
+      max-idle: 10
+      max-active: 40
+      max-wait: 10000
+      test-on-borrow: true
+      validation-query: SELECT 1
+  jpa:
+    generate-ddl: true
+
+    
