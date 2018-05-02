@@ -11,6 +11,11 @@ spring:
       test-on-borrow: true
       validation-query: SELECT 1
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
 
     

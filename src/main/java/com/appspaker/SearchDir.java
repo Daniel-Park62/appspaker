@@ -1,25 +1,37 @@
 package com.appspaker;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+import com.appspaker.model.FileList;
+import com.appspaker.model.RepoFileList;
+
+@Controller
 public class SearchDir {
-	@RequestMapping("/search")
-	public String search() {
-		return "{cat:\"1\", dir:\"/abc/def/lib\", fname:\"mylib001.so\", sz:300012}";
+
+	@Autowired
+	RepoFileList dao;
+
+	@GetMapping("/flist/{cat}")
+	@ResponseBody
+	public List<FileList> findByCat(@PathVariable String cat) {
+		System.out.println("cat:"+cat);
+		List<FileList> flists = (List<FileList>) dao.findByCat(cat);
+		System.out.println("flists = "+ flists.size());
+		return flists;
 	}
 
-	@RequestMapping(value="/test")
-	public Map<String, Object> test(){
-	    	Map<String, Object> map = new HashMap<String, Object>();
-	    	map.put("cat", "B");
-	    	map.put("dir", "/mydir");
-	    	map.put("fname", "appsparker.java");
-	    	map.put("sz", 5500);
-	    	return map;
-	    }
+	@RequestMapping(value = "/flist")
+	@ResponseBody
+	public List<FileList> test() {
+		List<FileList> flists = (List<FileList>) dao.findAll();
+		System.out.println("flists = "+ flists.size());
+		return flists;
+	}
 }

@@ -1,58 +1,51 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="ko">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/apsk_comm.js"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script type="text/javascript">
-      Number.prototype.format = function(){
-          if(this==0) return 0;
-          var reg = /(^[+-]?\d+)(\d{3})/;
-          var n = (this + '');
-          while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');
+<title>AppSparker</title>
+</head>
+<body onload="btn_click1()">
+	<div id="app" class="container table-responsive">
+		<apsk-menu></apsk-menu>
+		<button type="button" class="btn btn-outline-info btn-sm"
+			onclick="btn_click1()">Reload</button>
+		<table class="table table-bordered table-sm">
+			<thead class="text-center thead-light">
+				<tr>
+					<th>#</th>
+					<th>Direcory</th>
+					<th>File Name</th>
+					<th>Size</th>
+					<th>Remark</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(item,idx) in flist">
+					<td class="text-center">{{idx+1}}</td>
+					<td>{{item.dir}}</td>
+					<td>{{item.fname}}</td>
+					<td class="text-right">{{item.sz.format()}}</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
-          return n;
-      };
-      
-    </script>
-
-    <title>AppSparker</title>
-  </head>
-  <body>
-     <div id="app" class="container table-responsive">
-       <h4> 파일목록 </h4>
-       <button type="button" class="btn btn-primary" onclick="btn_click1()">Search</button>
-       <table class="table table-bordered table-hover table-sm">
-         <thead class="text-center bg-info">
-           <tr>
-             <th>#</th>
-             <th>디렉토리</th>
-             <th>파일명</th>
-             <th>사이즈</th>
-             <th>비고</th>
-           </tr>
-         </thead>
-         <tbody>
-           <tr v-for="(item,idx) in flist">
-             <td class="text-center">{{idx+1}}</td>
-             <td>{{item.dir}}</td>
-             <td>{{item.fname}}</td>
-             <td class="text-right">{{item.sz.format()}}</td>
-             <td></td>
-           </tr>
-         </tbody>
-       </table>
-     </div>
-
-    <!-- Optional JavaScript -->
-    <script type="text/javascript" src="filelist.js?ver=1"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="/webjars/jquery/3.3.1-1/jquery.min.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" ></script>
-    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
-  </body>
+	<!-- Optional JavaScript -->
+	<script type="text/javascript" src="js/filelist.js?ver=1"></script>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="/webjars/jquery/3.3.1-1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
 </html>

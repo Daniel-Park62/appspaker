@@ -24,12 +24,15 @@ var appm = new Vue({
 
 function btn_click1() {
     $.ajax({ 
-	        url : "/test",
-	        type : "POST",
+	        url : "/flist/A",
+	        type : "GET",
 	        cache : false,
 	        success : function(response){
 //	        	console.log("response:"+JSON.parse(response));
-	            flist.push(response);
+	        	flist.length = 0;
+	        	for (var e = 0; e < response.length ; e++) {
+	        		flist.push(response[e]);
+	        	}
 	        }
 	  });
 }
