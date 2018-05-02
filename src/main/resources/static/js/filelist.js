@@ -22,9 +22,9 @@ var appm = new Vue({
   }
 });
 
-function btn_click1() {
+function btn_click1(x) {
     $.ajax({ 
-	        url : "/flist/A",
+	        url : "/flist/" + x,
 	        type : "GET",
 	        cache : false,
 	        success : function(response){

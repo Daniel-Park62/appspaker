@@ -13,11 +13,13 @@
 
 <title>AppSparker</title>
 </head>
-<body onload="btn_click1()">
+<body onload="btn_click1('')">
 	<div id="app" class="container table-responsive">
 		<apsk-menu></apsk-menu>
-		<button type="button" class="btn btn-outline-info btn-sm"
-			onclick="btn_click1()">Reload</button>
+		<div class="container-fluid"  align="right" style="margin-bottom: 10px" >
+			<button type="button" class="btn btn-outline-info btn-sm"
+				onclick="btn_click1('A')">Reload</button>
+		</div>
 		<table class="table table-bordered table-sm">
 			<thead class="text-center thead-light">
 				<tr>
