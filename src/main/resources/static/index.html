@@ -8,19 +8,19 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="js/apsk_comm.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="js/apsk_comm.js?ver=0"></script>
 
 <title>AppSparker</title>
 </head>
-<body onload="btn_click1('')">
+<body onload="$('#file-list').click(); btn_click1('')">
 	<div id="app" class="container table-responsive">
 		<apsk-menu></apsk-menu>
-		<div class="container-fluid"  align="right" style="margin-bottom: 10px" >
+		<div class="container-fluid"  align="right" style="margin-bottom: 10px " >
 			<button type="button" class="btn btn-outline-info btn-sm"
 				onclick="btn_click1('A')">Reload</button>
 		</div>
-		<table class="table table-bordered table-sm">
+		<table class="table table-bordered table-sm table-fixed" >
 			<thead class="text-center thead-light">
 				<tr>
 					<th>#</th>

@@ -12,7 +12,7 @@ var flist =
     {cat:"1", dir:"/abc/def/lib", fname:"mylib001.so", sz:300012},
   ]
 
-var appm = new Vue({
+const appm = new Vue({
   el: '#app',
   data: function() {
     return {
@@ -23,16 +23,22 @@ var appm = new Vue({
 });
 
 function btn_click1(x) {
-    $.ajax({ 
+	$("body").css({"cursor":"wait"});
+
+	$.ajax({ 
 	        url : "/flist/" + x,
 	        type : "GET",
 	        cache : false,
 	        success : function(response){
 //	        	console.log("response:"+JSON.parse(response));
 	        	flist.length = 0;
-	        	for (var e = 0; e < response.length ; e++) {
-	        		flist.push(response[e]);
+	        	
+//	        	for (var e = 0; e < response.length ; e++) {
+	        	for (var e of response) {
+	        		flist.push(e);
 	        	}
+	        	
+	        	$("body").css({"cursor":"default"});
 	        }
 	  });
 }

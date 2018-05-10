@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Report for Appspaker</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
+<script src="https://unpkg.com/vue"></script>
+<script src="js/apsk_comm.js?ver=1"></script>
+</head>
+
+<body onload="$('#reports').click()">
+	<div id="app" class="container-fluid">
+		<apsk-menu></apsk-menu>
+	</div>
+	<script type="text/javascript">
+		var appm = new Vue({
+			el : '#app'
+		});
+	</script>
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item"><a class="nav-link active" href="#">
+								<span data-feather="bar-chart-2"></span> 파일현황요약 <span
+								class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"> <span
+								data-feather="file"></span> Error & Warnning
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"> <span
+								data-feather="shopping-cart"></span> Products
+						</a></li>
+					</ul>
+
+					<h6
+						class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+						<span>Saved reports</span> <a
+							class="d-flex align-items-center text-muted" href="#"> <span
+							data-feather="plus-circle"></span>
+						</a>
+					</h6>
+					<ul class="nav flex-column mb-2">
+						<li class="nav-item"><a class="nav-link" href="#"
+							onclick="$('.h2').text('Current month')"> <span
+								data-feather="file-text"></span> Current month
+						</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"> <span
+								data-feather="file-text"></span> Last quarter
+						</a></li>
+					</ul>
+				</div>
+			</nav>
+
+			<main role="main" class="box-body col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div
+				class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">파일현황요약</h1>
+				<div class="btn-toolbar mb-2 mb-md-0">
+					<div class="btn-group mr-2">
+						<button class="btn btn-sm btn-outline-secondary">Share</button>
+						<button class="btn btn-sm btn-outline-secondary">Export</button>
+					</div>
+				</div>
+			</div>
+
+			<canvas id="barchart" ></canvas>
+			</main>
+		</div>
+	</div>
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="/webjars/jquery/3.3.1-1/jquery.min.js"><\/script>')
+	</script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<!-- Icons -->
+	<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+	<script>
+		feather.replace()
+	</script>
+
+	<!-- Graphs -->
+	<script	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	<script type="text/javascript" src="js/utils.js"></script>
+	<script type="text/javascript" src="js/chart-data.js?ver=0"></script>
+		
+</body>
+</html>
